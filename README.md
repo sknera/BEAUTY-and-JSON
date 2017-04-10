@@ -1,2 +1,1 @@
-# BEAUTY-and-JSON
-zadanie na staz
+# sknera.github.io
