@@ -1,5 +1,8 @@
 body { 
 font-family: Arial;
+background-color:rgba(230, 126, 34,0.4);
+
+
 }
 
 table {
@@ -33,10 +36,10 @@ float:left;
 width:200px;
 height:50px;
 margin-right:20px;
-background-color:#DDD;
+background-color:rgba(200,200,200,0.6);
 }
 tr:nth-child(even){
-background-color:#aaa;
+background-color:rgba(150,150,150,0.5);
 }
 tr
 {
@@ -64,11 +67,22 @@ img
 }
 .limitation
 {
+position:fixed;
+
 	text-align:center;
-	background-color: violet;
-    position: fixed;
+	background-color: #d35400;
     bottom: 0;
 	right:0;
-	height:30px;
     width: 100%;
 }
+
+button {
+    height:20px;
+    line-height:20px;
+    vertical-align:middle;
+    text-align:center;
+    color:#ffffff;
+    background-color:#007bff;
+    display:inline-block;
+}
+
