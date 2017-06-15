@@ -2,56 +2,71 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
  <meta charset="UTF-8">
+ <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
  <link rel="stylesheet" type="text/css" href="style.css">
- 
- <title></title>   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+ <title>Dane służby</title> 
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
  <script src="beauty.js"></script> 
 </head>
-<body ng-app="myModule">
- <div ng-controller="myController"> 
- <div id="search">Wyszukaj po: 
- <input tpe="text" placeholder="id" ng-model="searchText.id"></input>
- <input tpe="text" placeholder="imię" ng-model="searchText.firstName"></input>
- <input tpe="text" placeholder="nazwisko" ng-model="searchText.lastName"></input>
- <input tpe="text" placeholder="wiek" ng-model="searchText.dateOfBirth"></input>
- <input tpe="text" placeholder="zawód" ng-model="searchText.function"></input>
- <input tpe="text" placeholder="doświadczenie" ng-model="searchText.experience"></input>
- <div id="sort">Posortuj po : <select ng-model="sortColumn"></div>
- <option value="+id">id &uarr;</option>
- <option value="-id">id &#8595;</option>
- <option value="+firstName">imię &uarr;</option>
- <option value="-firstName">imię &#8595;</option>
- <option value="+lastName">nazwisko &uarr;</option>
- <option value="-lastName"> nazwisko &#8595;</option>
- <option value="+dateOfBirth">wiek &uarr;</option> 
- <option value="-dateOfBirth">wiek &#8595;</option> 
- <option value="+function"> zawód &uarr;</option>
- <option value="-function"> zawód &#8595;</option>
- <option value="+experience">doświadczenie &uarr;</option>
- <option value="-experience">doświadczenie &#8595; </option>
- </select> <br /><br />
- <div id="table">
- <table> <thead> <tr>
- <th>zdjęcie</th>
- <th>id</th> 
- <th>imię</th> 
- <th>nazwisko</th> 
- <th>wiek</th>
- <th>zawód</th> 
- <th>doświadczenie</th> 
- </tr> </thead> 
- <tbody>
- <tr ng-repeat="employee in employees | filter:searchText | orderBy:sortColumn | limitTo:-5:limit">
- <td class="avatar"><img src="unknown.png"></td>
- <td class="id"> {{ employee.id }} </td> 
- <td class="firstName"> {{ employee.firstName }} </td> 
- <td class="lastName"> {{ employee.lastName }} </td> 
- <td class="age"> {{ employee.dateOfBirth  }} </td>
- <td class="function"> {{ employee.function }} </td>
- <td class="eperience"> {{ employee.experience }} </td> </tr> </tbody> </table> </div></div>
-<div class="limitation">
-<button id="decrement" href ng-click="decrementLimit();  hiddenStatement()">	&lt; poprzednia strona </button> 
-<button id="increment" href ng-click="incrementLimit(); hiddenStatement()">kolejna strona	&gt;</button>
+<body ng-app="myModule" ng-controller="myController">
+ <div>
+ <nav class="navbar navbar-default">Wyszukaj po: 
+ <input type="text" placeholder="id" ng-model="searchText.id"></input>
+ <input type="text" placeholder="imię" ng-model="searchText.firstName"></input>
+ <input type="text" placeholder="nazwisko" ng-model="searchText.lastName"></input>
+ <input type="text" placeholder="wiek" ng-model="searchText.dateOfBirth"></input>
+ <input type="text" placeholder="zawód" ng-model="searchText.function"></input>
+ <input type="text" placeholder="doświadczenie" ng-model="searchText.experience"></input>
+</nav>
+
+<nav class="navbar navbar-default">
+ <div id="sort">Posortuj po:
+ 	<select ng-model="sortColumn"></div>
+ 	<option value="+id">id &uarr;</option>
+ 	<option value="-id">id &#8595;</option>
+ 	<option value="+firstName">imię &uarr;</option>
+ 	<option value="-firstName">imię &#8595;</option>
+ 	<option value="+lastName">nazwisko &uarr;</option>
+ 	<option value="-lastName"> nazwisko &#8595;</option>
+ 	<option value="+dateOfBirth">wiek &uarr;</option> 
+ 	<option value="-dateOfBirth">wiek &#8595;</option> 
+ 	<option value="+function"> zawód &uarr;</option>
+ 	<option value="-function"> zawód &#8595;</option>
+ 	<option value="+experience">doświadczenie &uarr;</option>
+ 	<option value="-experience">doświadczenie &#8595; </option>
+ </select> 
+ </div>
+</nav>
+
+ <table class="table table-condensed table-striped table-bordered"> 
+ 	<thead class="thead-inverse">
+  		<tr>
+ 			<th class="text-center">zdjęcie</th>
+ 			<th class="text-center">id</th> 
+ 			<th class="text-center">imię</th>
+ 			<th class="text-center">nazwisko</th> 
+ 			<th class="text-center">wiek</th>
+ 			<th class="text-center">zawód</th> 
+ 			<th class="text-center">doświadczenie</th> 
+ 		</tr> 
+	</thead> 
+ 	<tbody>
+ 		<tr ng-repeat="employee in employees | filter:searchText | orderBy:sortColumn | limitTo:-5:limit">
+ 			<td class="text-center col-md-1"><img src="unknown.png"></td>
+ 			<td class="text-center col-md-1"> {{ employee.id }} </td> 
+ 			<td class="text-center col-md-2"> {{ employee.firstName }} </td> 
+ 			<td class="text-center col-md-2"> {{ employee.lastName }} </td> 
+ 			<td class="text-center col-md-1"> {{ employee.dateOfBirth  }} </td>
+			<td class="text-center col-md-2"> {{ employee.function }} </td>
+			<td class="text-center col-md-1"> {{ employee.experience }} </td> 
+ 		</tr> 
+ 	</tbody> 
+ </table> 
+ </div>
+
+<div  class="text-center panel panel-footer ">
+<button class="btn btn-primary" id="decrement" ng-click="decrementLimit();  hiddenStatement()">	&lt; poprzednia strona </button> 
+<button class="btn btn-primary" id="increment" ng-click="incrementLimit(); hiddenStatement()">kolejna strona &gt;</button>
 </div>
 </body>
 </html>

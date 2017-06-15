@@ -13,6 +13,7 @@ module("myModule", [])
 	  var currentPage=1;
 	 //pokazuje kolejne pięć rekordów 
 	 $scope.incrementLimit = function() {
+      console.log('eee');
      	 $scope.limit+=5;
      	 $scope.begin+=5;
 	 currentPage+=1;
