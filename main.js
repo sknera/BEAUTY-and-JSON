@@ -176,7 +176,7 @@ var pages=Math.ceil(count/limit);
 	//używa daty by zamienić ją na wiek w latach
 function stringToDate(s)  {
   s = s.split('.');
-  return 2017-parseInt(s[2].substring(0,4));
+  return 2017-parseInt(s[2].substring(0,4))+"lat";
 }
 
 
